@@ -14,11 +14,13 @@ public struct TabDataObject {
     public let title: String?
     public let image: UIImage?
     public let accessibilityTitle: String
+    public let identifier: String
     
-    public init(title: String?, image: UIImage?, accessibilityTitle: String) {
+    public init(title: String?, image: UIImage?, accessibilityTitle: String, identifier: String) {
         self.title = title
         self.image = image
         self.accessibilityTitle = accessibilityTitle
+        self.identifier = identifier
     }
 }
 
@@ -105,7 +107,7 @@ public protocol CustomTabBarDelegate {
     
     // MARK: - Public properties
     
-    open var dataObjects: [TabDataObject] = [TabDataObject(title: "one", image: nil, accessibilityTitle: "First"), TabDataObject(title: "two", image: nil, accessibilityTitle: "Second")] {
+    open var dataObjects: [TabDataObject] = [TabDataObject(title: "one", image: nil, accessibilityTitle: "First", identifier: "first"), TabDataObject(title: "two", image: nil, accessibilityTitle: "Second", identifier: "second")] {
         didSet {
             configureTabs()
         }
